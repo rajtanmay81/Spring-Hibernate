@@ -17,35 +17,28 @@ public class Driver {
 		
 		ApplicationContext ioc = new AnnotationConfigApplicationContext(DemoConfiguration.class);
 		Product p = ioc.getBean(Product.class);
-		p.setPid(2);
-		p.setPname("Perfume");
-		p.setPrice(8500.00);
+		p.setPid(5);
+		p.setPname("Charger");
+		p.setPrice(36500.00);
 		
 //		EntityManagerFactory emf = Persistence.createEntityManagerFactory("postgres");
 		
 		ProductDao dao=ioc.getBean(ProductDao.class);
-		dao.saveProduct(p);
+//		dao.saveProduct(p);
+//		dao.selectAllProduct();
 		
+//		dao.DeleteProduct(1);
+//		dao.findProduct(4);
 		
+		Product pd = p;
+		pd.setPid(5);
+		pd.setPname("Cloths");
+		pd.setPrice(950.00);
+		dao.updateProduct(5,pd);
 		
-//		EntityManager em = emf.createEntityManager();		
-//		EntityTransaction et = em.getTransaction();
-		
-//		Product p1 = new Product();
-//		p1.setPid(1);
-//		p1.setPname("Ram");
-//		p1.setPrice(8500.00);
-//		
-//		et.begin();
-//
-////		em.persist(h1);
-////		em.persist(b1);
-//		em.persist(p1);
-//
-//		et.commit();
-
 		
 	}
 	
 	
 }
+
